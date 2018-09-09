@@ -48,8 +48,8 @@ module.exports = function(sequelize, DataTypes) {
     });
   
     Class.associate = function(models) {
-      Class.hasMany(models.User, {
-        onDelete: "cascade"
+      Class.belongsToMany(models.User, {
+        through: "user_class_combined"
       });
     };
   
