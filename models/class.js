@@ -13,13 +13,15 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
       },
       date: {
-          type: DataTypes.DATE,
+          type: DataTypes.INTEGER,
           allowNull: false
+          //need to use a place holder in the html
       },
       time:{
           type: DataTypes.INTEGER,
           allowNull: false
           //how do we want to validate time?
+           //need to use a place holder in the html
       },
       location: {
           type: DataTypes.TEXT,

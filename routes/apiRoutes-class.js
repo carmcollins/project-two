@@ -21,8 +21,9 @@ module.exports = function(app) {
 
   // Create a new class
   app.post("/api/class", function(req, res) {
-    db.Class.create(req.body).then(function(dbClass) {
-      res.json(dbClass);
+    console.log(req.body);
+    db.Class.create(req.body).then(function(data) {
+      res.json(data);
     });
   });
 

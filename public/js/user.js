@@ -26,7 +26,7 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newUser = {
-            name: $("#user-name").val().trim(),
+            name: $("#user-name").val().trim().toLowerCase(),
             email: $("#user-email").val().trim(),
             phone: $("#user-phone").val().trim(),
             password: $("#user-password").val().trim(),
