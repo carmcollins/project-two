@@ -4,7 +4,7 @@ module.exports = function(app) {
  
 
   // Get a specific user
-  app.get("/api/class/:name/:password", function(req, res) {
+  app.get("/api/user/:name/:password", function(req, res) {
     db.User.findOne({
       where:{
         name: req.params.name,

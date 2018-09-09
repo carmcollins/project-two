@@ -33,7 +33,7 @@ $(document).ready(function () {
                 var classInfoList = $("<li>")
                     .attr({
                         class: "list-group-item",
-                        "data-id": example.id
+                        "data-id": classInfo.id
                         //do this for each item per class
                     })
                     .append(classDiv);
@@ -67,7 +67,7 @@ $(document).ready(function () {
             location: $("#location").val().trim(),
             maxStudents: $("#maxStudents").val().trim(),
             price: $("#price").val().trim(),
-            photo: $("#photo").val().trim(),
+            photo: $("#photo").val().trim()
         },
 
         if (!(newClass.title && newClass.description && newClass.category && newClass.date && newClass.time && newClass.location && newClass.maxStudents && newClass.price)) {
@@ -102,11 +102,12 @@ $(document).ready(function () {
                 classDiv = $("<div>").text(classInfo.title)
                     .addClass(classInfo.id);
                 //need to push class info to class html
+                //need to add data-id to sign-up button
             });
         });
     };
 
-    // Add event listeners to the submit and delete buttons
+    // Add event listeners to the submit and more info buttons
     $("#createNewClassButton").on("click", handleNewClassSubmit);
     $("#selectClass").on("click", handleMoreInfoClick);
 
