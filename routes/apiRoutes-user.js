@@ -22,4 +22,13 @@ module.exports = function(app) {
       res.json(data);
     });
   });
+
+// Create a new registration
+app.post("/api/registration", function(req, res) {
+  db.user_class_combined.create(req.body).then(function(data) {
+    res.json(data);
+  });
+});
+
+
 };
