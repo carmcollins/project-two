@@ -11,4 +11,19 @@ $(document).ready(function(){
 
   // Allows users to be able to select multiple categories in drop down menu
   $('select').formSelect();
-});
+
+// //toggles the create an account form 
+  $("#signUp").click(function(){
+    $("#createAccount").toggle();
+    $("#form1").hide(function(){
+    })
+  });
+
+
+//toggles the sign in form 
+  $("#logIn").click(function(){
+    $("#form1").toggle();
+    $("#createAccount").hide(function(){
+    })
+  });
+}); 
