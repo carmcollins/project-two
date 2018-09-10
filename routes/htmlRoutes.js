@@ -17,9 +17,19 @@ module.exports = function(app) {
   // Load classes page and send classes
   app.get("/classes", function(req, res) {
     db.Class.findAll({}).then(function(data) {
-      console.log("all:" + data)
+      console.log("all:" + JSON.stringify(data));
       res.render("classes", {
-        Classes: data
+        data: data
+      });
+    });
+  });
+
+  // Load classes based on filter parameters on classes page
+  app.get("/classes/:filter", function(req, res) {
+    db.Class.findAll({ where: {category: req.params.filter}}).then(function(data) {
+      console.log("filtered classes:" + JSON.stringify(data));
+      res.render("classes", {
+        data: data
       });
     });
   });

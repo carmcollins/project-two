@@ -111,8 +111,5 @@ $(document).ready(function () {
     $("#createNewClassButton").on("click", handleNewClassSubmit);
     $("#selectClass").on("click", handleMoreInfoClick);
 
-
-
-
 });
   
