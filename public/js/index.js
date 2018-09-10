@@ -1,3 +1,5 @@
+$(document).ready(function() {
+
 // Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
@@ -6,7 +8,7 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveUser: function(example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -16,16 +18,10 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getUser: function() {
     return $.ajax({
       url: "api/examples",
       type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
     });
   }
 };
@@ -97,3 +93,7 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+
+});

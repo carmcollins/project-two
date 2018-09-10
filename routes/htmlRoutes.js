@@ -1,21 +1,53 @@
+
 var db = require("../models");
 
 module.exports = function(app) {
-  // Load index page
+
+
+  // Load index page send classes so we can select featured classes
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Class.findAll({}).then(function(data) {
+      console.log("all:" + data)
       res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
+        Class: data
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  // Load classes page and send classes
+  app.get("/classes", function(req, res) {
+    db.Class.findAll({}).then(function(data) {
+      console.log("all:" + data)
+      res.render("classes", {
+        Classes: data
+      });
+    });
+  });
+
+  // Load class page and pass in an example by id
+  app.get("/class/:id", function(req, res) {
+    db.Class.findOne({ where: { id: req.params.id } }).then(function(data) {
+      res.render("class", {
+        Class: data
+      });
+    });
+  });
+
+  
+  // Load create class page 
+  app.get("/create-class", function(req, res) {
+    db.Class.create({req}).then(function(data) {
+      res.render("create-class", {
+        Class: data
+      });
+    });
+  });
+
+  // Load create new user page 
+  app.get("/create-user", function(req, res) {
+    db.Class.create({req}).then(function(data) {
+      res.render("create-user", {
+        User: data
       });
     });
   });
