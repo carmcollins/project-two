@@ -40,7 +40,7 @@ $(document).ready(function () {
 
                 var selectClass = $("<button>")
                     .addClass("btn selectClass")
-                    .text("More Info");
+                    .text("Learn More");
 
                 classInfoList.append(selectClass);
 
@@ -59,15 +59,15 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newClass = {
-            title: $("#title").val().trim(),
-            category: $("#category").val().trim(),
-            description: $("#description").val().trim(),
-            date: $("#date").val().trim(),
-            time: $("#time").val().trim(),
-            location: $("#location").val().trim(),
-            maxStudents: $("#maxStudents").val().trim(),
-            price: $("#price").val().trim(),
-            photo: $("#photo").val().trim()
+            title: $("#title-input").val().trim(),
+            category: $("#category-input").val().trim(),
+            description: $("#description-input").val().trim(),
+            date: $("#date-input").val().trim(),
+            time: $("#time-input").val().trim(),
+            location: $("#location-input").val().trim(),
+            maxStudents: $("#spaces-input").val().trim(),
+            price: $("#price-input").val().trim(),
+            photo: $("#photo-input").val().trim()
         },
 
         if (!(newClass.title && newClass.description && newClass.category && newClass.date && newClass.time && newClass.location && newClass.maxStudents && newClass.price)) {
@@ -79,18 +79,20 @@ $(document).ready(function () {
             refreshClasses();
         });
 
-        $("#title").val("");
-        $("#category").val("");
-        $("#description").val("");
-        $("#date").val("");
-        $("#time").val("");
-        $("#location").val("");
-        $("#maxStudents").val("");
-        $("#price").val("");
-        $("#photo").val("");
+        $("#title-input").val("");
+        $("#category-input").val("");
+        $("#description-input").val("");
+        $("#date-input").val("");
+        $("#time-input").val("");
+        $("#location-input").val("");
+        $("#spaces-input").val("");
+        $("#price-input").val("");
+        $("#photo-input").val("");
     };
 
-    // handlemoreinfoClick is called when an class' moreinfo button is clicked
+    
+
+    // handlemoreinfoClick is called when a class' moreinfo button is clicked
 
     var handleMoreInfoClick = function () {
         var idOfClass = $(this)
@@ -110,6 +112,4 @@ $(document).ready(function () {
     // Add event listeners to the submit and more info buttons
     $("#createNewClassButton").on("click", handleNewClassSubmit);
     $("#selectClass").on("click", handleMoreInfoClick);
-
 });
-  
