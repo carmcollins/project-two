@@ -35,10 +35,10 @@ module.exports = function(app) {
   });
 
   // Load class page and pass in an example by id
-  app.get("/class/:id", function(req, res) {
+  app.get("/class-details/:id", function(req, res) {
     db.Class.findOne({ where: { id: req.params.id } }).then(function(data) {
-      res.render("class", {
-        Class: data
+      res.render("class-details", {
+        data: data
       });
     });
   });
@@ -46,20 +46,7 @@ module.exports = function(app) {
   
   // Load create class page 
   app.get("/create-class", function(req, res) {
-    db.Class.create({req}).then(function(data) {
-      res.render("create-class", {
-        Class: data
-      });
-    });
-  });
-
-  // Load create new user page 
-  app.get("/create-user", function(req, res) {
-    db.Class.create({req}).then(function(data) {
-      res.render("create-user", {
-        User: data
-      });
-    });
+    res.render("create-class")
   });
 
   // Render 404 page for any unmatched routes

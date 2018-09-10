@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   // Get a specific class
-  app.get("/api/class/:id", function(req, res) {
+  app.get("/api/class-details/:id", function(req, res) {
     db.Class.findOne({
       where:{
         id: req.params.id
@@ -23,13 +23,6 @@ module.exports = function(app) {
   app.post("/api/class", function(req, res) {
     console.log(req.body);
     db.Class.create(req.body).then(function(data) {
-      res.json(data);
-    });
-  });
-
-  // Delete a class by id
-  app.delete("/api/class/:id", function(req, res) {
-    db.Class.destroy({ where: { id: req.params.id } }).then(function(data) {
       res.json(data);
     });
   });
