@@ -2,14 +2,58 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-  <title>Home Page</title>
+  <meta charset="utf-8" />
+  <title>classUp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+  <!-- Materialize Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/styles/style.css" />
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+  <!-- JS -->
+  <script src="/js/script.js"></script>
 </head>
 
 <body>
+  <!-- Nav -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index" class="brand-logo comfortaa bold">classUp</a>
+      <a href="#" data-target="mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="classes">Browse Classes</a></li>
+        <li><a href="create-class">Create A Class</a></li>
+        <li><a href="login-signup">Sign Up / Log In</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Mobile Nav -->
+  <ul class="sidenav" id="mobile">
+    <li><a href="classes">Browse Classes</a></li>
+    <li><a href="create-class">Create A Class</a></li>
+    <li><a href="login-signup">Sign Up / Log In</a></li>
+  </ul>
+
   {{{body}}}
+
+  <!-- Footer -->
+  <footer class="page-footer center">
+    <a class="white-text" href="#"><i class="fab fa-facebook-f"></i></a>
+    <a class="white-text" href="#"><i class="fab fa-twitter"></i></a>
+    <a class="white-text" href="#"><i class="fab fa-instagram"></i></a>
+    <a class="white-text" href="#"><i class="fab fa-pinterest"></i></a>
+  </footer>
 </body>
 
 </html>

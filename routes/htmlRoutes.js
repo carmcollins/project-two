@@ -6,10 +6,10 @@ module.exports = function(app) {
 
   // Load index page send classes so we can select featured classes
   app.get("/", function(req, res) {
-    db.Class.findOne({ where: { id: 1 }}).then(function(data) {
-      console.log("all:" + data)
+    db.Class.findAll({ where: {featured: true}}).then(function(data) {
+      console.log("all:" + JSON.stringify(data));
       res.render("index", {
-        Class: data
+        data: data
       });
     });
   });
@@ -17,9 +17,19 @@ module.exports = function(app) {
   // Load classes page and send classes
   app.get("/classes", function(req, res) {
     db.Class.findAll({}).then(function(data) {
-      console.log("all:" + data)
+      console.log("all:" + JSON.stringify(data));
       res.render("classes", {
-        Classes: data
+        data: data
+      });
+    });
+  });
+
+  // Load classes based on filter parameters on classes page
+  app.get("/classes/:filter", function(req, res) {
+    db.Class.findAll({ where: {category: req.params.filter}}).then(function(data) {
+      console.log("filtered classes:" + JSON.stringify(data));
+      res.render("classes", {
+        data: data
       });
     });
   });

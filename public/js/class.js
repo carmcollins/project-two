@@ -112,11 +112,4 @@ $(document).ready(function () {
     // Add event listeners to the submit and more info buttons
     $("#createNewClassButton").on("click", handleNewClassSubmit);
     $("#selectClass").on("click", handleMoreInfoClick);
-
-
-    
-
-
-
 });
-  

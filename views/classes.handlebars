@@ -1,0 +1,82 @@
+<!-- All Classes -->
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="center">
+                    <img src="/photos/2.jpg" width="50%">
+                    <h4 class="comfortaa bold">Browse Our Classes</h4>
+                    <div class="row">
+                        <div class="col m2"></div>
+                        <div class="col s12 m8">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida leo id sapien
+                                dignissim, non volutpat est tincidunt. Suspendisse consequat volutpat sem, at venenatis
+                                metus hendrerit vel. Donec id efficitur ipsum. Integer sit amet hendrerit odio. Nulla
+                                vestibulum tincidunt eleifend. Vestibulum pulvinar nulla a nunc tincidunt, sed gravida
+                                mi sagittis.</p>
+                        </div>
+                    </div>
+                    <a href="/classes/online" id="online" class="waves-effect waves-light btn-small filter-btn">Online</a>
+                    <a href="/classes/inperson" id="inperson" class="waves-effect waves-light btn-small filter-btn">In Person</a>
+                    <a href="/classes/fitness" id="fitness" class="waves-effect waves-light btn-small filter-btn">Fitness</a>
+                    <a href="/classes/art" id="art" class="waves-effect waves-light btn-small filter-btn">Art</a>
+                    <a href="/classes/cooking" id="cooking" class="waves-effect waves-light btn-small filter-btn">Cooking</a>
+                    <a href="/classes/language" id="language" class="waves-effect waves-light btn-small filter-btn">Language</a>
+                    <a href="/classes/kids" id="kids" class="waves-effect waves-light btn-small filter-btn">Kids</a>
+                </div>
+                <br>
+                <div class="row">
+                    <!-- Class 1 -->
+                    {{#each data}}
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="{{this.photo}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title comfortaa">{{this.title}}</span>
+                                <p>{{this.description}}</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" target="blank">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                    <!-- Class 2 -->
+                    {{!-- <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="photos/paint3.jpg" alt="#">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title comfortaa">Abstract Art Class</span>
+                                <p>Create your own masterpiece in a step-by-step art class led by a professional
+                                    painter.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" target="blank">Learn more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Class 3 -->
+                    <div class="col s12 m4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="photos/graphic1.gif" alt="#">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title comfortaa">Photoshop Class</span>
+                                <p>Learn all the skills you need to become a junior graphic designer in this 5-day
+                                    course.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#" target="blank">Learn more</a>
+                            </div>
+                        </div>
+                    </div> --}}
+                </div> <!-- End of classes row -->
+            </div> <!-- End of column -->
+        </div> <!-- End of row -->
+    </div> <!-- End of section --->
+</div> <!-- End of container -->
