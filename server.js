@@ -1,5 +1,11 @@
+/*
+sk key: sk_test_bZW5BqNybsg5V1bHDoij1xyz
+pk key: pk_test_drOZ8fjels9TRp9id5EdnO0Y
+*/
+
 require("dotenv").config();
 var express = require("express");
+var stripe = require("stripe")("sk_test_bZW5BqNybsg5V1bHDoij1xyz");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
@@ -21,6 +27,25 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+app.set("views", __dirname + '/views');
+
+
+app.get('/', function(req, res){
+  res.render('payment', {
+  });
+});
+
+app.get('/paysuccess', function(req, res){
+  res.render('paysuccess', {
+  });
+});
+
+app.post('/charge', function(req, res){
+});
+
+app.listen(3000, function(){
+  console.log("Stripe server is running!!");
+});
 
 // Routes
 require("./routes/apiRoutes")(app);
@@ -35,14 +60,14 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
-});
+// db.sequelize.sync(syncOptions).then(function() {
+//   app.listen(PORT, function() {
+//     console.log(
+//       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+//       PORT,
+//       PORT
+//     );
+//   });
+// });
 
 module.exports = app;
