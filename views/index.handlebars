@@ -1,33 +1,48 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+<!-- Intro -->
+<div id="index-banner" class="parallax-container">
+  <div class="section">
+    <div class="container">
+      <div class="row center">
+        <div class="col s12">
+          <h1 class="header center comfortaa bold" id="main-title">Learn. Explore. Grow.</h1>
+          <h5 class="header" id="subtitle">classUp makes it simple for you to enroll in fun classes, take up new hobbies, meet interesting people, and share your skills with others.</h5>
+          <br>
+          <a href="classes" class="waves-effect waves-light btn-large red lighten-2">Browse all classes</a>
+        </div>
       </div>
     </div>
   </div>
+  <!-- Parallax Image -->
+  <div class="parallax"><img src="/photos/background.jpg" alt="activities photo"></div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<!-- Container -->
+<div class="container">
+  <div class="section">
+    <div class="row">
+      <div class="col s12">
+        <h4 class="center comfortaa bold">Featured Classes</h4>
+        <br>
+        <div class="row">
+          <!-- Featured Class 1 -->
+          {{#each data}}
+          <div class="col s12 m4">
+            <div class="card">
+              <div class="card-image">
+                <img src="{{this.photo}}" alt="class photo">
+              </div>
+              <div class="card-content">
+                <span class="card-title comfortaa">{{this.title}}</span>
+                <p>{{this.description}}</p>
+              </div>
+              <div class="card-action">
+                <a href="class-details" target="blank">Learn more</a>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div> <!-- End of row -->
+      </div> <!-- End of column -->
+    </div> <!-- End of row -->
+  </div> <!-- End of section -->
+</div> <!-- End of container -->

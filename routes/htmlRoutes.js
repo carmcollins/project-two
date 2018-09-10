@@ -6,10 +6,10 @@ module.exports = function(app) {
 
   // Load index page send classes so we can select featured classes
   app.get("/", function(req, res) {
-    db.Class.findAll({}).then(function(data) {
-      console.log("all:" + data)
+    db.Class.findAll({ where: {featured: true}}).then(function(data) {
+      console.log("all:" + JSON.stringify(data));
       res.render("index", {
-        Class: data
+        data: data
       });
     });
   });
