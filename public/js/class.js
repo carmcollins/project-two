@@ -63,7 +63,8 @@ $(document).ready(function () {
             category: $("#category-input").val().trim(),
             description: $("#description-input").val().trim(),
             date: $("#date-input").val().trim(),
-            time: $("#time-input").val().trim(),
+            starttime: $("#starttime-input").val().trim(),
+            endtime: $("#endtime-input").val().trim(),
             location: $("#location-input").val().trim(),
             maxStudents: $("#spaces-input").val().trim(),
             price: $("#price-input").val().trim(),
@@ -83,7 +84,8 @@ $(document).ready(function () {
         $("#category-input").val("");
         $("#description-input").val("");
         $("#date-input").val("");
-        $("#time-input").val("");
+        $("#starttime-input").val("");
+        $("#endtime-input").val("");
         $("#location-input").val("");
         $("#spaces-input").val("");
         $("#price-input").val("");
