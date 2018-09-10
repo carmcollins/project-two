@@ -6,7 +6,7 @@ module.exports = function(app) {
 
   // Load index page send classes so we can select featured classes
   app.get("/", function(req, res) {
-    db.Class.findAll({}).then(function(data) {
+    db.Class.findOne({ where: { id: 1 }}).then(function(data) {
       console.log("all:" + data)
       res.render("index", {
         Class: data

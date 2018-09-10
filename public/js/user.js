@@ -10,11 +10,17 @@ $(document).ready(function () {
                 data: JSON.stringify(newUser)
             });
         },
-        getUser: function () {
+        getUser: function (username, password) {
             return $.ajax({
-                url: "api/user" + newUser.name + newUser.password,
+                url: "api/user/" + username + "/" + password,
                 type: "GET"
 
+            });
+        },
+        getClass: function (id) {
+            return $.ajax({
+                url: "api/class/" + id,
+                type: "GET"
             });
         }
     };
@@ -47,21 +53,28 @@ $(document).ready(function () {
             $("#user-photo").val("")
     };
 
-    // handleSignUpClick is called when a user is on the more info page for the specific class and clicks on the sign-up
+    // handleSignUpClick is called when a user clicks on the sign-up button
     var handleSignUpClick = function () {
 
         var idOfClass = $(this)
             .parent()
             .attr("data-id");
-
-        API.deleteExample(idToDelete).then(function () {
+        var userInfo = {
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim()
+        }
+        
+        API.getUser(userInfo.username, userInfo.password).then(function () {
+            API.getClass(idOfClass).then(function () {
+            user.addClass(Class.name)
             refreshExamples();
         });
+    });
     };
 
     // Add event listeners to the submit and delete buttons
     $("#submit").on("click", handleNewUserSubmit);
-   $("#sign-up").on("click", handleDeleteBtnClick);
+   $("#sign-up").on("click", handleSignUpClick);
 
 
 
