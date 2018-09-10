@@ -46,6 +46,10 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.BOOLEAN,
         allowNull: true,
         default: false
+      },
+      instructor: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     });
   
