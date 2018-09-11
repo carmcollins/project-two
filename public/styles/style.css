@@ -32,7 +32,11 @@
 
 .details-photo {
     width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+hr {
+    margin: 20px 0;
 }
 
 .signup-btn {
