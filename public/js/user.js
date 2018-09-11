@@ -104,8 +104,8 @@ $(document).ready(function () {
     }
 
     API.loginUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    $("#email-login").val("");
+    $("#password-login").val("");
   });
 
 
