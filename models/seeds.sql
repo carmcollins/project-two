@@ -1,0 +1,52 @@
+{
+    "title": "Bikram Yoga Class",
+    "category": "Fitness",
+    "description": "Rest and regain your breath with this 1-hour bikram yoga class in the great outdoors.",
+    "date": 9172018,
+    "starttime": 500,
+    "endtime": 600,
+    "location": "Pease Park",
+    "maxStudents": 25,
+    "price": 10,
+    "photo": "https://image.ibb.co/bKqw4p/yoga1.jpg",
+    "instructor": "Jenni Bazelak"
+},
+{
+    "title": "Abstract Art Class",
+    "category": "Art",
+    "description": "Create your own masterpiece in a step-by-step art class led by a professional painter.",
+    "date": 9202018,
+    "starttime": 1200,
+    "endtime": 300,
+    "location": "Flightpath Coffee Shop",
+    "maxStudents": 10,
+    "price": 50,
+    "photo": "https://image.ibb.co/d1SLVU/paint3.jpg",
+    "instructor": "Carmen Collins"
+},
+{
+    "title": "Photoshop Class",
+    "category": "Art",
+    "description": "Learn all the skills you need to become a junior graphic designer in this 5-day course.",
+    "date": 9252018,
+    "starttime": 200,
+    "endtime": 500,
+    "location": "WeWork Austin",
+    "maxStudents": 10,
+    "price": 500,
+    "photo": "https://preview.ibb.co/e2Qkx9/graphic1.gif",
+    "instructor": "Evelyn Gonzales"
+},
+{
+    "title": "Beginner Yoga Class",
+    "category": "Fitness",
+    "description": "Rest and regain your breath with this 1-hour bikram yoga class in the great outdoors.",
+    "date": 9302018,
+    "starttime": 400,
+    "endtime": 500,
+    "location": "Seaholm Lawn",
+    "maxStudents": 20,
+    "price": 20,
+    "photo": "https://image.ibb.co/bKqw4p/yoga1.jpg",
+    "instructor": "Melissa Womack"
+}

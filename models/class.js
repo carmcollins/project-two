@@ -16,26 +16,26 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: false,
       validate: {
-        isDate: true,
-        isAfter: Sequelize.NOW
+        isDate: true
+        // isAfter: Sequelize.NOW
       }
       //need to use a place holder in the html
     },
     starttime: {
       type: DataTypes.TIME,
-      allowNull: false,
-      validate: {
-        isAfter: Sequelize.NOW
-      }
+      allowNull: false
+      // validate: {
+      //   isAfter: Sequelize.NOW
+      // }
       //how do we want to validate time?
       //need to use a place holder in the html
     },
     endtime: {
       type: DataTypes.TIME,
-      allowNull: false,
-      validate: {
-        isAfter: startTime
-      }
+      allowNull: false
+      // validate: {
+      //   isAfter: startTime
+      // }
       //how do we want to validate time?
       //need to use a place holder in the html
     },
@@ -49,7 +49,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     price: {
-      type: DataTypes.DECIMAL(1000000, 2),
+      type: DataTypes.DECIMAL,
       allowNull: false,
       //need to add validation for price
     },

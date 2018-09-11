@@ -46,7 +46,12 @@ module.exports = function(app) {
   
   // Load create class page 
   app.get("/create-class", function(req, res) {
-    res.render("create-class")
+    res.render("create-class");
+  });
+
+  // Load login + signup page
+  app.get("/login-signup", function(req, res) {
+    res.render("login-signup");
   });
 
   // Render 404 page for any unmatched routes
