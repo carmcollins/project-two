@@ -95,17 +95,17 @@ $(document).ready(function () {
    $("#logInBtn").on("click", function(event) {
     event.preventDefault();
     var userData = {
-      email: $("#inputEmail").val().trim(),
-      password: $("#inputPassword1").val().trim()
+      email: $("#email-login").val().trim(),
+      password: $("#password-login").val().trim()
     };
 
     if (!userData.email || !userData.password) {
       return;
     }
 
-    loginUser(userData.email, userData.password);
-    emailInput.val("");
-    passwordInput.val("");
+    API.loginUser(userData.email, userData.password);
+    $("#email-login").val("");
+    $("#password-login").val("");
   });
 
 
