@@ -1,6 +1,5 @@
 $(document).ready(function () {
 
-
     // The API object contains methods for each kind of request we'll make for users
     var API = {
         createUser: function (newUser) {
@@ -22,7 +21,24 @@ $(document).ready(function () {
                 url: "api/class/" + id,
                 type: "GET"
             });
-        }
+        },
+        loginUser: function(email, password) {
+            $.post("/api/login", {
+              email: email,
+              password: password
+            }).then(function(data) {
+              window.location.replace(data);
+            }).catch(function(err) {
+              console.log(err);
+            });
+          }
+        //   USE THIS TO GET USER INFO
+        //   getUserInfo: function() {
+        //       return $.ajax({
+        //           url: "api/user_data",
+        //           type: "GET"
+        //       });
+        //   } 
     };
 
 
@@ -72,9 +88,25 @@ $(document).ready(function () {
     });
     };
 
-    // Add event listeners to the submit and delete buttons
+
     $("#submit").on("click", handleNewUserSubmit);
-   $("#sign-up").on("click", handleSignUpClick);
+    $("#sign-up").on("click", handleSignUpClick);
+
+   $("#logInBtn").on("click", function(event) {
+    event.preventDefault();
+    var userData = {
+      email: $("#inputEmail").val().trim(),
+      password: $("#inputPassword1").val().trim()
+    };
+
+    if (!userData.email || !userData.password) {
+      return;
+    }
+
+    loginUser(userData.email, userData.password);
+    emailInput.val("");
+    passwordInput.val("");
+  });
 
 
 
