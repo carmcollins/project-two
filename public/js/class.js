@@ -5,7 +5,7 @@ $(document).ready(function () {
             return $.ajax({
                 type: "POST",
                 url: "api/class",
-                data: JSON.stringify(newClass)
+                data: newClass
             });
         },
         getClasses: function () {
@@ -60,7 +60,6 @@ $(document).ready(function () {
 
         var newClass = {
             title: $("#title-input").val().trim(),
-            category: $("#category-input").val().trim(),
             description: $("#description-input").val().trim(),
             date: $("#date-input").val().trim(),
             starttime: $("#starttime-input").val().trim(),
@@ -68,12 +67,24 @@ $(document).ready(function () {
             location: $("#location-input").val().trim(),
             maxStudents: $("#spaces-input").val().trim(),
             price: $("#price-input").val().trim(),
-            photo: $("#photo-input").val().trim()
-        },
+            photo: $("#photo-input").val().trim(),
+            category: $("#category-input").val()
+        };
 
-        if (!(newClass.title && newClass.description && newClass.category && newClass.date && newClass.time && newClass.location && newClass.maxStudents && newClass.price)) {
-            alert("You must enter all information!");
-            return;
+        if (!(
+            newClass.title && 
+            newClass.description && 
+            newClass.category && 
+            newClass.date && 
+            newClass.starttime && 
+            newClass.endtime && 
+            newClass.location && 
+            newClass.maxStudents && 
+            newClass.price && 
+            newClass.photo &&
+            newClass.category)) {
+                alert("You must enter all information!");
+                return;
         }
 
         API.createClass(newClass).then(function () {
@@ -81,7 +92,6 @@ $(document).ready(function () {
         });
 
         $("#title-input").val("");
-        $("#category-input").val("");
         $("#description-input").val("");
         $("#date-input").val("");
         $("#starttime-input").val("");
@@ -90,9 +100,8 @@ $(document).ready(function () {
         $("#spaces-input").val("");
         $("#price-input").val("");
         $("#photo-input").val("");
+        $("#category-input").val("");
     };
-
-    
 
     // handlemoreinfoClick is called when a class' moreinfo button is clicked
 
@@ -112,6 +121,7 @@ $(document).ready(function () {
     };
 
     // Add event listeners to the submit and more info buttons
-    $("#createNewClassButton").on("click", handleNewClassSubmit);
+    $("#createclass-btn").on("click", handleNewClassSubmit);
     $("#selectClass").on("click", handleMoreInfoClick);
+
 });

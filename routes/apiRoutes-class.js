@@ -15,13 +15,14 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(data) {
+      
       res.json(data);
     });
   });
 
   // Create a new class
   app.post("/api/class", function(req, res) {
-    console.log(req.body);
+    console.log("new class: " + JSON.stringify(req.body));
     db.Class.create(req.body).then(function(data) {
       res.json(data);
     });

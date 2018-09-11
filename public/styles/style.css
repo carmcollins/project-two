@@ -39,6 +39,14 @@
     margin: 5% 0;
 }
 
+.people-jumping-photo {
+    width: 50%;
+}
+
+.people-standing-photo {
+    width: 75%;
+}
+
 @media only screen and (max-width: 1299px) {
     #main-title {
         margin-top: 15%;
@@ -48,6 +56,13 @@
 @media only screen and (max-width: 759px) {
     #main-title {
         margin-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .people-jumping-photo,
+    .people-standing-photo {
+        width: 100%;
     }
 }
 
