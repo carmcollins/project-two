@@ -20,7 +20,7 @@ $(document).ready(function () {
                 url: "api/class/" + id,
                 type: "GET"
             });
-        }
+        }   
     };
 
     // refreshExamples gets new examples from the db and repopulates the list
