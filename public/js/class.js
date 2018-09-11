@@ -23,44 +23,14 @@ $(document).ready(function () {
         }   
     };
 
-    // refreshExamples gets new examples from the db and repopulates the list
-    var refreshClasses = function () {
-        API.getClasses().then(function (data) {
-            classes = data.map(function (classInfo) {
-                classDiv = $("<div>").text(classInfo.title)
-                    .addClass(classInfo.id);
-
-                var classInfoList = $("<li>")
-                    .attr({
-                        class: "list-group-item",
-                        "data-id": classInfo.id
-                        //do this for each item per class
-                    })
-                    .append(classDiv);
-
-                var selectClass = $("<button>")
-                    .addClass("btn selectClass")
-                    .text("Learn More");
-
-                classInfoList.append(selectClass);
-
-                return classInfoList;
-            });
-
-            $("#classList").empty();
-            $("#classList").append(classes);
-        });
-    };
-
-    //   handleNewClassSubmit is called whenever the create a class is clicked
-    //   Save the new example to the db and refresh the list
-
+    // handleNewClassSubmit is called whenever someone creates a class
     var handleNewClassSubmit = function (event) {
         event.preventDefault();
 
         var newClass = {
             title: $("#title-input").val().trim(),
             description: $("#description-input").val().trim(),
+            instructor: $("#instructor-input").val().trim(),
             date: $("#date-input").val().trim(),
             starttime: $("#starttime-input").val().trim(),
             endtime: $("#endtime-input").val().trim(),
@@ -74,6 +44,7 @@ $(document).ready(function () {
         if (!(
             newClass.title && 
             newClass.description && 
+            newClass.instructor &&
             newClass.category && 
             newClass.date && 
             newClass.starttime && 
@@ -87,12 +58,11 @@ $(document).ready(function () {
                 return;
         }
 
-        API.createClass(newClass).then(function () {
-            refreshClasses();
-        });
+        API.createClass(newClass);
 
         $("#title-input").val("");
         $("#description-input").val("");
+        $("#instructor-input").val("");
         $("#date-input").val("");
         $("#starttime-input").val("");
         $("#endtime-input").val("");
@@ -103,25 +73,7 @@ $(document).ready(function () {
         $("#category-input").val("");
     };
 
-    // handlemoreinfoClick is called when a class' moreinfo button is clicked
-
-    var handleMoreInfoClick = function () {
-        var idOfClass = $(this)
-            .parent()
-            .attr("data-id");
-
-        API.getClass(idOfClass).then(function (data) {
-            classDisplay = data.map(function (classInfo) {
-                classDiv = $("<div>").text(classInfo.title)
-                    .addClass(classInfo.id);
-                //need to push class info to class html
-                //need to add data-id to sign-up button
-            });
-        });
-    };
-
-    // Add event listeners to the submit and more info buttons
+    // When some clicks the "Create Class" button...
     $("#createclass-btn").on("click", handleNewClassSubmit);
-    $("#selectClass").on("click", handleMoreInfoClick);
 
 });

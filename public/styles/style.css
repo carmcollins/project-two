@@ -1,3 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
 .brand-logo {
     margin-left: 15px;
 }
@@ -10,12 +20,24 @@
     line-height: 1.5em;
 }
 
+#notfound-title {
+    margin-top: 20%;
+}
+
+.parallax-container {
+    height: 600px;
+}
+
 .bold {
     font-weight: bold;
 }
 
 .comfortaa {
     font-family: 'Comfortaa', cursive;
+}
+
+.golden-text {
+    color: #F0A92B;
 }
 
 .fab {
