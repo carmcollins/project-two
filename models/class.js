@@ -1,47 +1,34 @@
+var moment = require("moment");
+
 module.exports = function (sequelize, DataTypes) {
   var Class = sequelize.define("Class", {
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    category: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: false
     },
     date: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
-      validate: {
-        isDate: true,
-        isAfter: Sequelize.NOW
-      }
+      allowNull: false
       //need to use a place holder in the html
     },
     starttime: {
       type: DataTypes.TIME,
-      allowNull: false,
-      validate: {
-        isAfter: Sequelize.NOW
-      }
+      allowNull: false
       //how do we want to validate time?
       //need to use a place holder in the html
     },
     endtime: {
       type: DataTypes.TIME,
-      allowNull: false,
-      validate: {
-        isAfter: startTime
-      }
+      allowNull: false
       //how do we want to validate time?
       //need to use a place holder in the html
     },
     location: {
       type: DataTypes.TEXT,
-      //category: (online, inperson),
       allowNull: false
     },
     maxStudents: {
@@ -49,20 +36,22 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     price: {
-      type: DataTypes.DECIMAL(1000000, 2),
-      allowNull: false,
-      //need to add validation for price
+      type: DataTypes.DECIMAL(5,2),
+      allowNull: false
     },
     photo: {
       type: DataTypes.TEXT,
-      allowNull: true,
+      allowNull: false,
       validate: {
         isUrl: true
       }
     },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     featured: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
       default: false
     }
   });

@@ -32,11 +32,23 @@
 
 .details-photo {
     width: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
+}
+
+hr {
+    margin: 20px 0;
 }
 
 .signup-btn {
     margin: 5% 0;
+}
+
+.people-jumping-photo {
+    width: 50%;
+}
+
+.people-standing-photo {
+    width: 75%;
 }
 
 @media only screen and (max-width: 1299px) {
@@ -48,6 +60,13 @@
 @media only screen and (max-width: 759px) {
     #main-title {
         margin-top: 10%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .people-jumping-photo,
+    .people-standing-photo {
+        width: 100%;
     }
 }
 

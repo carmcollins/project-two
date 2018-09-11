@@ -15,7 +15,6 @@
   <!-- Parallax Image -->
   <div class="parallax"><img src="/photos/background.jpg" alt="activities photo"></div>
 </div>
-
 <!-- Container -->
 <div class="container">
   <div class="section">
@@ -24,7 +23,7 @@
         <h4 class="center comfortaa bold">Featured Classes</h4>
         <br>
         <div class="row">
-          <!-- Featured Class 1 -->
+          <!-- Featured Class Card -->
           {{#each data}}
           <div class="col s12 m4">
             <div class="card">
@@ -36,7 +35,7 @@
                 <p>{{this.description}}</p>
               </div>
               <div class="card-action">
-                <a href="/class-details/{{this.id}}" target="blank">Learn more</a>
+                <a href="/class-details/{{this.id}}">Learn more</a>
               </div>
             </div>
           </div>
