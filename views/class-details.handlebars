@@ -2,21 +2,41 @@
 <div class="container">
     <div class="section">
         <div class="row">
+            <!-- Column 1 -->
             <div class="col s12 m6 center">
                 <img src="{{data.photo}}" class="details-photo">
                 <a class="waves-effect waves-light btn-large signup-btn">Sign Up For This Class</a>
             </div>
+            <!-- Column 2 -->
             <div class="col s12 m6">
                 <h4 class="comfortaa bold">{{data.title}}</h4>
-                <h6><span class="comfortaa bold golden-text">Instructor: </span>{{data.instructor}}</h6>
-                <hr>
                 <p>{{data.description}}</p>
-                <hr>
-                <h6><span class="comfortaa bold golden-text">Date: </span>{{data.date}}</h6>
-                <h6><span class="comfortaa bold golden-text">Time: </span>{{data.starttime}} to {{data.endtime}}</h6>
-                <h6><span class="comfortaa bold golden-text">Location: </span>{{data.location}}</h6>
-                <h6><span class="comfortaa bold golden-text">Spaces Available: </span>{{data.maxStudents}}</h6>
-                <h6><span class="comfortaa bold golden-text">Price Per Person: </span>${{data.price}}</h6>
+                <table>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Instructor:</td>
+                        <td>{{data.instructor}}</td>
+                    </tr>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Date:</td>
+                        <td>{{data.date}}</td>
+                    </tr>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Time:</td>
+                        <td>{{data.starttime}} - {{data.endtime}}</td>
+                    </tr>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Location:</td>
+                        <td>{{data.location}}</td>
+                    </tr>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Spaces Available:</td>
+                        <td>{{data.maxStudents}}</td>
+                    </tr>
+                    <tr>
+                        <td class="comfortaa bold golden-text">Price Per Person:</td>
+                        <td>${{data.price}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

@@ -70,7 +70,8 @@ $(document).ready(function () {
         $("#spaces-input").val("");
         $("#price-input").val("");
         $("#photo-input").val("");
-        $("#category-input").val("");
+        $("#category-input").val("Choose");
+        $("select").formSelect();
     };
 
     // When some clicks the "Create Class" button...
