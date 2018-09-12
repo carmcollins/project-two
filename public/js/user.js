@@ -22,16 +22,22 @@ $(document).ready(function () {
                 type: "GET"
             });
         },
-        loginUser: function(email, password) {
+        loginUser: function (email, password) {
             $.post("/api/login", {
-              email: email,
-              password: password
-            }).then(function(data) {
-              window.location.replace(data);
-            }).catch(function(err) {
-              console.log(err);
+                email: email,
+                password: password
+            }).then(function (data) {
+                window.location.replace(data);
+            }).catch(function (err) {
+                console.log(err);
             });
-          }
+        },
+        logoutUser: function () {
+            return $.ajax({
+                url: "/logout",
+                type: "GET"
+            });
+        }
         //   USE THIS TO GET USER INFO
         //   getUserInfo: function() {
         //       return $.ajax({
@@ -67,27 +73,28 @@ $(document).ready(function () {
             $("#password-signup").val("")
     };
 
+    $(".signup-btn").on("click", handleNewUserSubmit);
+    // $("#regbutton").on("click", handleSignUpClick);
 
-    $("#signup-btn").on("click", handleNewUserSubmit);
-  
+    $("#logInBtn").on("click", function (event) {
+        event.preventDefault();
+        var userData = {
+            email: $("#email-login").val().trim(),
+            password: $("#password-login").val().trim()
+        };
 
-   //this handles user login
-   $("#logInBtn").on("click", function(event) {
-    event.preventDefault();
-    var userData = {
-      email: $("#email-login").val().trim(),
-      password: $("#password-login").val().trim()
-    };
+        if (!userData.email || !userData.password) {
+            return;
+        }
 
-    if (!userData.email || !userData.password) {
-      return;
-    }
+        API.loginUser(userData.email, userData.password);
+        $("#email-login").val("");
+        $("#password-login").val("");
+    });
 
-    API.loginUser(userData.email, userData.password);
-    $("#email-login").val("");
-    $("#password-login").val("");
-  });
-
-
+    $("#logout-btn").on("click", function (event) {
+        ever.preventDefault();
+        API.logoutUser();
+    })
 
 });
