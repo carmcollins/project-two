@@ -1,6 +1,7 @@
 
 var db = require("../models");
 var passport = require("../config/passport");
+var moment = require("moment");
 
 module.exports = function(app) {
 
@@ -38,6 +39,9 @@ module.exports = function(app) {
   // Load class page and pass in an example by id
   app.get("/class-details/:id", function(req, res) {
     db.Class.findOne({ where: { id: req.params.id } }).then(function(data) {
+      data.dateMod = moment(data.date, "YYYY-MM-DD").format("ddd, MMM D, YYYY");
+      data.starttimeMod = moment(data.starttime, "hh:mm A").format("h:mm A");
+      data.endtimeMod = moment(data.endtime, "hh:mm A").format("h:mm A");
       res.render("class-details", {
         data: data
       });

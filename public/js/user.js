@@ -73,8 +73,15 @@ $(document).ready(function () {
             $("#password-signup").val("")
     };
 
-    $(".signup-btn").on("click", handleNewUserSubmit);
-    // $("#regbutton").on("click", handleSignUpClick);
+    $("#signup-btn").on("click", handleNewUserSubmit);
+   // $("#regbutton").on("click", handleSignUpClick);
+
+   $("#logInBtn").on("click", function(event) {
+    event.preventDefault();
+    var userData = {
+      email: $("#email-login").val().trim(),
+      password: $("#password-login").val().trim()
+    };
 
     $("#logInBtn").on("click", function (event) {
         event.preventDefault();
