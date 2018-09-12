@@ -73,25 +73,6 @@ $(document).ready(function () {
             $("#password-signup").val("")
     };
 
-    // handleSignUpClick is called when a user clicks on the sign-up button
-    // var handleSignUpClick = function () {
-
-    //     var idOfClass = $(this)
-    //         .parent()
-    //         .attr("data-id");
-    //     var userInfo = {
-    //         username: $("#username").val().trim(),
-    //         password: $("#password").val().trim()
-    //     }
-
-    //     API.getUser(userInfo.username, userInfo.password).then(function () {
-    //         API.getClass(idOfClass).then(function () {
-    //         user.addClass(Class.name)
-    //     });
-    // });
-    // };
-
-
     $(".signup-btn").on("click", handleNewUserSubmit);
     // $("#regbutton").on("click", handleSignUpClick);
 
