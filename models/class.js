@@ -1,5 +1,3 @@
-var moment = require("moment");
-
 module.exports = function (sequelize, DataTypes) {
   var Class = sequelize.define("Class", {
     title: {
@@ -17,26 +15,17 @@ module.exports = function (sequelize, DataTypes) {
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false
-      //need to use a place holder in the html
     },
     starttime: {
       type: DataTypes.STRING,
       allowNull: false
-      //how do we want to validate time?
-      //need to use a place holder in the html
     },
     endtime: {
       type: DataTypes.STRING,
       allowNull: false
-      //how do we want to validate time?
-      //need to use a place holder in the html
     },
     location: {
       type: DataTypes.TEXT,
-      allowNull: false
-    },
-    maxStudents: {
-      type: DataTypes.INTEGER,
       allowNull: false
     },
     price: {

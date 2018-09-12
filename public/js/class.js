@@ -60,7 +60,6 @@ var handleNewClassSubmit = function (event) {
         starttime: $("#starttime-input").val().trim(),
         endtime: $("#endtime-input").val().trim(),
         location: $("#location-input").val().trim(),
-        maxStudents: $("#spaces-input").val().trim(),
         price: $("#price-input").val().trim(),
         photo: $("#photo-input").val().trim(),
         category: $("#category-input").val()
@@ -75,7 +74,6 @@ var handleNewClassSubmit = function (event) {
         newClass.starttime &&
         newClass.endtime &&
         newClass.location &&
-        newClass.maxStudents &&
         newClass.price &&
         newClass.photo &&
         newClass.category)) {
@@ -92,7 +90,6 @@ var handleNewClassSubmit = function (event) {
     $("#starttime-input").val("");
     $("#endtime-input").val("");
     $("#location-input").val("");
-    $("#spaces-input").val("");
     $("#price-input").val("");
     $("#photo-input").val("");
     $("#category-input").val("Choose");
