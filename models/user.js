@@ -24,7 +24,6 @@ module.exports = function (sequelize, DataTypes) {
   });
 
   User.associate = function (models) {
-
     User.belongsToMany(models.Class, {
       through: "user_class_combined"
     });

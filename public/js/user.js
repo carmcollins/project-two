@@ -16,12 +16,6 @@ $(document).ready(function () {
 
             });
         },
-        getClass: function (id) {
-            return $.ajax({
-                url: "api/class/" + id,
-                type: "GET"
-            });
-        },
         loginUser: function (email, password) {
             $.post("/api/login", {
                 email: email,
@@ -47,9 +41,7 @@ $(document).ready(function () {
         //   } 
     };
 
-
-    // handleFormSubmit is called whenever we submit a new User
-    // Save the new example to the db 
+    // When someone creates a new user, get all the info from the form
     var handleNewUserSubmit = function (event) {
         event.preventDefault();
 
@@ -63,26 +55,20 @@ $(document).ready(function () {
         if (!(newUser.name && newUser.email && newUser.phone && newUser.password)) {
             alert("You must enter all information!");
             return;
-        }
+        };
 
         API.createUser(newUser);
 
-        $("#name-signup").val(""),
-            $("#email-signup").val(""),
-            $("#phone-signup").val(""),
-            $("#password-signup").val("")
+        $("#name-signup").val("");
+        $("#email-signup").val("");
+        $("#phone-signup").val("");
+        $("#password-signup").val("");
     };
 
+    // When someone clicks the Create Account button...
     $("#signup-btn").on("click", handleNewUserSubmit);
-   // $("#regbutton").on("click", handleSignUpClick);
 
-   $("#logInBtn").on("click", function(event) {
-    event.preventDefault();
-    var userData = {
-      email: $("#email-login").val().trim(),
-      password: $("#password-login").val().trim()
-    };
-
+    // When someone clicks the Log In button...
     $("#logInBtn").on("click", function (event) {
         event.preventDefault();
         var userData = {
@@ -92,16 +78,18 @@ $(document).ready(function () {
 
         if (!userData.email || !userData.password) {
             return;
-        }
+        };
 
         API.loginUser(userData.email, userData.password);
+
         $("#email-login").val("");
         $("#password-login").val("");
     });
 
+    // When someone clicks the Log Out button...
     $("#logout-btn").on("click", function (event) {
         ever.preventDefault();
         API.logoutUser();
-    })
+    });
 
 });

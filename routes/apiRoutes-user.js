@@ -3,14 +3,12 @@ var passport = require("../config/passport");
 
 module.exports = function(app) {
  
-
   // Get a specific user
   app.get("/api/user/:name/:password", function(req, res) {
     db.User.findOne({
       where:{
         name: req.params.name,
         password: req.params.password
-
       }
     }).then(function(data) {
       res.json(data);
@@ -47,14 +45,10 @@ module.exports = function(app) {
         email: req.user.email,
         phone: req.user.phone,
         photo: req.user.photo
-      };
+      }
+    };
 
-      res.json(newObj);
-    }
+    res.json(newObj);
   });
 
 };
-
-/* 
-
-*/
