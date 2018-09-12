@@ -55,6 +55,11 @@ module.exports = function(app) {
     res.render("login-signup");
   });
 
+  // Load success page after payment
+  app.get("/paysuccess", function(req, res) {
+    res.render("paysuccess");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");

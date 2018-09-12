@@ -5,19 +5,7 @@
             <!-- Column 1 -->
             <div class="col s12 m6 center">
                 <img src="{{data.photo}}" class="details-photo">
-                <a class="waves-effect waves-light btn-large signup-btn" data-id="{{data.id}}">Sign Up For This Class</a>
-                            <form action="/charge" method="POST">
-  <script
-    src="https://checkout.stripe.com/checkout.js" data-id="{{data.id}}" class="stripe-button"
-    data-key="pk_test_3kQuYbD9iDbwfdk6squr49KV"
-    data-amount="{{data.price}}"
-    data-name="classUp.com"
-    data-description="charge for {{data.title}}"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto"
-    data-zip-code="true">
-  </script>
-</form>
+                <a id="paymentButton" class="waves-effect waves-light btn-large signup-btn">Sign Up For This Class</a>
             </div>
             <!-- Column 2 -->
             <div class="col s12 m6">
@@ -53,3 +41,50 @@
         </div>
     </div>
 </div>
+
+<script>
+  var handler = StripeCheckout.configure({
+    key: 'pk_test_drOZ8fjels9TRp9id5EdnO0Y',
+    image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
+    locale: 'auto',
+    token: function(token) {
+      $.ajax({
+        type: "POST",
+        url: "/api/charge",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify({
+          source: token.id,
+          product: {
+            amount: {{data.price}} * 100,
+        currency: 'usd',
+        description: `{{data.description}}`,
+    }
+    }),
+      success: function(data, textStatus, jqXHR) {
+        window.location = "/paysuccess";
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        var errorMessage = jqXHR.responseJSON.err
+      }
+    })
+      // You can access the token ID with `token.id`.
+      // Get the token ID to your server-side code for use.
+    }
+  });
+
+  document.getElementById('paymentButton').addEventListener('click', function(e) {
+    // Open Checkout with further options:
+    handler.open({
+      name: `{{data.title}}`,
+      description: `{{data.description}}`,
+      amount: {{data.price}} * 100
+  });
+    e.preventDefault();
+  });
+
+  // Close Checkout on page navigation:
+  window.addEventListener('popstate', function() {
+    handler.close();
+  });
+</script>
