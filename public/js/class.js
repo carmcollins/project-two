@@ -103,16 +103,24 @@ var handleNewClassSubmit = function (event) {
 
 
 // Add event listeners to the submit and more info buttons
-$(".createclass-btn").on("click", handleNewClassSubmit);
+$("#createclass-btn").on("click", handleNewClassSubmit);
+
     //add onclick for registration
-    $(".signup-btn").on("click",function(){
+    $(".stripe-button").on("click",function(){
         if (!req.user){
-//go to sign-up page
+            
+                return $.ajax({
+                    url: "/classes",
+                    type: "GET"
+                });
+            
         }
         else{
-            $(".signup-btn").hide();
-           $(".stripe-button").show();
-           $(".stripe-button").on("click", handleRegistration);
+            handleRegistration;
+            return $.ajax({
+                url: "/classes",
+                type: "GET"
+            });
         }
     });
 
