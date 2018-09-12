@@ -12,8 +12,11 @@ $(document).ready(function(){
   $(".datepicker").datepicker();
   $(".timepicker").timepicker();
 
-  // Allows users to be able to select multiple categories in drop down menu
+  // Allows users to select categories in drop down menu
   $("select").formSelect();
+  $("#createclass-btn").on("click", function() {
+    $("select").formSelect();
+  });
 
   // By default, show sign up form + hide log in form
   $("#signup-form").show();

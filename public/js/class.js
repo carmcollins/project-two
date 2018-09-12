@@ -16,28 +16,33 @@ $(document).ready(function () {
                 type: "GET"
             });
         },
+     
         getClass: function () {
             var id = $(this).data("id");
             return $.ajax({
                 url: "api/class/" + id,
                 type: "GET"
             });
+
         },
-        addStudent: function (id) {
+      addStudent: function (classId) {
             return $.ajax({
                 type: "POST",
-                url: "api/register/" + id 
+                url: "api/register/" + classId 
             });
-        },
+      }
     };
+  
+  
 
     //this handles on click for registration
     var handleRegistration = function (event) {
+  
         event.preventDefault();
-        var classID = $("#regbutton").attr("data-id");
-
-        API.addStudent(classID)
-    };
+        var classId = $("#regbutton").attr("data-id");
+   API.addStudent(classID);
+            };
+      
 
 //   handleNewClassSubmit is called whenever the create a class is clicked
 //   Save the new example to the db and refresh the list
@@ -89,7 +94,8 @@ var handleNewClassSubmit = function (event) {
     $("#spaces-input").val("");
     $("#price-input").val("");
     $("#photo-input").val("");
-    $("#category-input").val("");
+    $("#category-input").val("Choose");
+   $("select").formSelect();
 };
 
 
@@ -109,4 +115,5 @@ $(".createclass-btn").on("click", handleNewClassSubmit);
            $(".stripe-button").on("click", handleRegistration);
         }
     });
+
 });
