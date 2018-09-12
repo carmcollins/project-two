@@ -99,12 +99,14 @@ var handleNewClassSubmit = function (event) {
 // Add event listeners to the submit and more info buttons
 $(".createclass-btn").on("click", handleNewClassSubmit);
     //add onclick for registration
-    $("#regbutton").on("click",function(){
+    $(".signup-btn").on("click",function(){
+        if (!req.user){
 //go to sign-up page
-//have the page populate with the class info
-//and have a pay now button
-//when click on pay now button follow the handleRegistration
-
-        handleRegistration
+        }
+        else{
+            $(".signup-btn").hide();
+           $(".stripe-button").show();
+           $(".stripe-button").on("click", handleRegistration);
+        }
     });
 });
