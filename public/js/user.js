@@ -86,7 +86,7 @@ $(document).ready(function () {
     // };
 
 
-    $(".signup-btn").on("click", handleNewUserSubmit);
+    $("#signup-btn").on("click", handleNewUserSubmit);
    // $("#regbutton").on("click", handleSignUpClick);
 
    $("#logInBtn").on("click", function(event) {

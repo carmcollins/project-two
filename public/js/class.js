@@ -50,6 +50,7 @@ $(document).ready(function () {
 var handleNewClassSubmit = function (event) {
     
     event.preventDefault();
+    console.log($("#starttime-input").val().trim());
 
     var newClass = {
         title: $("#title-input").val().trim(),
@@ -103,17 +104,21 @@ var handleNewClassSubmit = function (event) {
 
 
 // Add event listeners to the submit and more info buttons
-$(".createclass-btn").on("click", handleNewClassSubmit);
+$("#createclass-btn").on("click", handleNewClassSubmit);
+
+
+
+
     //add onclick for registration
-    $(".signup-btn").on("click",function(){
-        if (!req.user){
-//go to sign-up page
-        }
-        else{
-            $(".signup-btn").hide();
-           $(".stripe-button").show();
-           $(".stripe-button").on("click", handleRegistration);
-        }
-    });
+//     $(".signup-btn").on("click",function(){
+//         if (!req.user){
+// //go to sign-up page
+//         }
+//         else{
+//             $(".signup-btn").hide();
+//            $(".stripe-button").show();
+//            $(".stripe-button").on("click", handleRegistration);
+//         }
+//     });
 
 });

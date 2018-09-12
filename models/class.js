@@ -20,13 +20,13 @@ module.exports = function (sequelize, DataTypes) {
       //need to use a place holder in the html
     },
     starttime: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false
       //how do we want to validate time?
       //need to use a place holder in the html
     },
     endtime: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false
       //how do we want to validate time?
       //need to use a place holder in the html

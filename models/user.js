@@ -8,13 +8,10 @@ module.exports = function (sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        // isEmail: true
-      }
+      allowNull: false
     },
     phone: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.TEXT,
       allowNull: false
     },
     password: {
