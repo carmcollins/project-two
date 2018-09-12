@@ -1,39 +1,33 @@
-var stripe = require("stripe")("pk_test_3kQuYbD9iDbwfdk6squr49KV");
+var env = process.env.NODE_ENV || "development";
+var { secret } = require('../config/config.json').stripe
+var stripe = require('stripe')(secret)
 
-// module.exports = function (app) {
+module.exports = function(app) {
+  // creates charge on stripe
+  app.post("/api/charge", function(req, res) {
+    var source = req.body.source
+    var { amount, currency, description } = req.body.product
 
-//     app.post("/charge", function(req, res) {
-//         const token = req.body.stripeToken; 
-//         stripe.charges.create({
-//             amount: req.body.amount,
-//             currency: req.body.currency,
-//             description: req.body.description,
-//             source: token,
-//           }).then(function (data) {
+    stripe.charges.create({
+      description,
+      amount,
+      currency,
+      source
+    }, function(err, charge) {
+      if (err) {
+        var data = {
+          err: `Payment Failed`
+        }
+        res.status(409).json(data);
+        console.log('Error occured during the payment', err)
+      } else {
+        var data = {
+          success: `Payment has been completed`
+        }
+        res.json(data);
+        console.log('Payment has been completed!')
+      }
+    });
+  });
 
-//             res.json(data);
-//         });
-//     });
-//     };
-
-// var stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
-// app.post("api/charge", function(req, res) {
-
-// const token = request.body.stripeToken; 
-
-
-// stripe.charges.create({
-//     amount: 10,
-//     currency: 'usd',
-//     customer: customer.id,
-//     source: token
-// }, function(err, charge) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         console.log("successful charge")
-//     }
-// });
-
-
-
+};

@@ -18,5 +18,8 @@
   "production": {
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
+  },
+  "stripe": {
+    "secret": "sk_test_bZW5BqNybsg5V1bHDoij1xyz"
   }
 }
