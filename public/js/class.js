@@ -16,7 +16,7 @@ $(document).ready(function () {
                 type: "GET"
             });
         },
-     
+
         getClass: function () {
             var id = $(this).data("id");
             return $.ajax({
@@ -25,23 +25,21 @@ $(document).ready(function () {
             });
 
         },
-      addStudent: function (classId) {
+        addStudent: function (classId) {
             return $.ajax({
                 type: "POST",
-                url: "api/register/" + classId 
+                url: "api/register/" + classId
             });
-      }
+        }
     };
-  
-  
+
+
 
     //this handles on click for registration
     var handleRegistration = function (event) {
-  
         event.preventDefault();
-        var classId = $("#regbutton").attr("data-id");
-   API.addStudent(classID);
-            };
+
+ 
       
 
 //   handleNewClassSubmit is called whenever the create a class is clicked
@@ -104,18 +102,25 @@ var handleNewClassSubmit = function (event) {
 $("#createclass-btn").on("click", handleNewClassSubmit);
 
 
+        var classId = $(".stripe-button").attr("data-id");
+        API.addStudent(classId);
+    };
+
+
 
 
     //add onclick for registration
-//     $(".signup-btn").on("click",function(){
-//         if (!req.user){
-// //go to sign-up page
-//         }
-//         else{
-//             $(".signup-btn").hide();
-//            $(".stripe-button").show();
-//            $(".stripe-button").on("click", handleRegistration);
-//         }
-//     });
+
+    $(".stripe-button").on("click", function () {
+        if (!req.user) {
+            return $.ajax({
+                url: "/classes",
+                type: "GET"
+            });
+        }
+        else {
+            handleRegistration;
+        }
+    });
 
 });
