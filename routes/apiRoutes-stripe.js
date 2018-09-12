@@ -16,7 +16,7 @@ module.exports = function (app) {
                 res.send("error");
             } else {
                 console.log("successful charge")
-                res.redirect("/");//(charge);
+                res.redirect("/");
             }
         }).catch(function(err){
             res.send("error");
