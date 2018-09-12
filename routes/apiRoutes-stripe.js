@@ -1,6 +1,8 @@
 var stripe = require("stripe")("pk_test_3kQuYbD9iDbwfdk6squr49KV");
 
- module.exports = function (app) {
+// Posts user's payment info to the Stripe API dashboard
+module.exports = function (app) {
+
     app.post("/api/charge", function(req, res) {
         const token = req.body.stripeToken; 
         stripe.charges.create({
@@ -16,14 +18,9 @@ var stripe = require("stripe")("pk_test_3kQuYbD9iDbwfdk6squr49KV");
                 console.log("successful charge")
                 res.redirect("/");//(charge);
             }
-
         }).catch(function(err){
             res.send("error");
-        })
+        });
     });
     
-   
 };
-
-
-

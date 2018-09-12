@@ -27,7 +27,7 @@ module.exports = function (app) {
     });
   });
 
-  // Create a new registration
+  // When a user signs up for a class, take the user's ID and the class's ID and combine them on a third table in the DB
   app.post("/api/register/:id", function (req, res) {
     db.Class.findOne({
       where: {
@@ -46,4 +46,5 @@ module.exports = function (app) {
       });
     });
   });
+  
 };

@@ -1,12 +1,10 @@
-
 var db = require("../models");
 var passport = require("../config/passport");
 var moment = require("moment");
 
 module.exports = function(app) {
 
-
-  // Load index page send classes so we can select featured classes
+  // Load index page with featured classes
   app.get("/", function(req, res) {
     db.Class.findAll({ where: {featured: true}}).then(function(data) {
       console.log("all:" + JSON.stringify(data));
@@ -16,7 +14,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load classes page and send classes
+  // Load classes page with all classes
   app.get("/classes", function(req, res) {
     db.Class.findAll({}).then(function(data) {
       console.log("all:" + JSON.stringify(data));
@@ -36,7 +34,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load class page and pass in an example by id
+  // Load a specific class details page based on ID
   app.get("/class-details/:id", function(req, res) {
     db.Class.findOne({ where: { id: req.params.id } }).then(function(data) {
       data.dateMod = moment(data.date, "YYYY-MM-DD").format("ddd, MMM D, YYYY");
@@ -48,7 +46,6 @@ module.exports = function(app) {
     });
   });
 
-  
   // Load create class page 
   app.get("/create-class", function(req, res) {
     res.render("create-class");
@@ -63,4 +60,5 @@ module.exports = function(app) {
   app.get("*", function(req, res) {
     res.render("404");
   });
+
 };
