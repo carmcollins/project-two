@@ -4,7 +4,19 @@
         <div class="row">
             <div class="col s12 m6 center">
                 <img src="{{data.photo}}" class="details-photo">
-                <a class="waves-effect waves-light btn-large signup-btn">Sign Up For This Class</a>
+                <a class="waves-effect waves-light btn-large signup-btn" data-id="{{data.id}}">Sign Up For This Class</a>
+                            <form action="/charge" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" data-id="{{data.id}}" class="stripe-button"
+    data-key="pk_test_3kQuYbD9iDbwfdk6squr49KV"
+    data-amount="{{data.price}}"
+    data-name="classUp.com"
+    data-description="charge for {{data.title}}"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
             </div>
             <div class="col s12 m6">
                 <h4 class="comfortaa bold">{{data.title}}</h4>

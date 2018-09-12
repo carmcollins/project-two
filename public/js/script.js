@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+  $(".stripe-button").hide();
+
   // Makes the sidebar nav collapsible / functional on mobile
   $(".sidenav").sidenav();
 
@@ -27,5 +30,13 @@ $(document).ready(function(){
     $("#signup-form").show();
     $("#login-form").hide();
   });
+
+  // Hides sign-up button + shows pay button
+  $(".signup-btn").on("click", function() {
+    $(".stripe-button").show();
+    $(".signup-btn").hide();
+  });
+
+
 
 });
