@@ -42,6 +42,7 @@ module.exports = function(app) {
     }
     else {
       var newObj = {
+        id: req.user.id,
         name: req.user.name,
         email: req.user.email,
         phone: req.user.phone,
