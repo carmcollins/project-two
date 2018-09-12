@@ -6,7 +6,7 @@ $(document).ready(function () {
             return $.ajax({
                 type: "POST",
                 url: "api/user",
-                data: JSON.stringify(newUser)
+                data: newUser
             });
         },
         getUser: function (username, password) {
@@ -48,11 +48,10 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newUser = {
-            name: $("#user-name").val().trim().toLowerCase(),
-            email: $("#user-email").val().trim(),
-            phone: $("#user-phone").val().trim(),
-            password: $("#user-password").val().trim(),
-            photo: $("#user-photo").val().trim()
+            name: $("#name-signup").val().trim().toLowerCase(),
+            email: $("#email-signup").val().trim(),
+            phone: $("#phone-signup").val().trim(),
+            password: $("#password-signup").val().trim(),
         };
 
         if (!(newUser.name && newUser.email && newUser.phone && newUser.password)) {
@@ -60,37 +59,35 @@ $(document).ready(function () {
             return;
         }
 
-        API.createUser(newUser)
+        API.createUser(newUser);
 
-        $("#user-name").val(""),
-            $("#user-email").val(""),
-            $("#user-phone").val(""),
-            $("#user-password").val(""),
-            $("#user-photo").val("")
+        $("#name-signup").val(""),
+            $("#email-signup").val(""),
+            $("#phone-signup").val(""),
+            $("#password-signup").val("")
     };
 
     // handleSignUpClick is called when a user clicks on the sign-up button
-    var handleSignUpClick = function () {
+    // var handleSignUpClick = function () {
 
-        var idOfClass = $(this)
-            .parent()
-            .attr("data-id");
-        var userInfo = {
-            username: $("#username").val().trim(),
-            password: $("#password").val().trim()
-        }
+    //     var idOfClass = $(this)
+    //         .parent()
+    //         .attr("data-id");
+    //     var userInfo = {
+    //         username: $("#username").val().trim(),
+    //         password: $("#password").val().trim()
+    //     }
         
-        API.getUser(userInfo.username, userInfo.password).then(function () {
-            API.getClass(idOfClass).then(function () {
-            user.addClass(Class.name)
-            refreshExamples();
-        });
-    });
-    };
+    //     API.getUser(userInfo.username, userInfo.password).then(function () {
+    //         API.getClass(idOfClass).then(function () {
+    //         user.addClass(Class.name)
+    //     });
+    // });
+    // };
 
 
-    $("#submit").on("click", handleNewUserSubmit);
-    $("#sign-up").on("click", handleSignUpClick);
+    $(".signup-btn").on("click", handleNewUserSubmit);
+   // $("#regbutton").on("click", handleSignUpClick);
 
    $("#logInBtn").on("click", function(event) {
     event.preventDefault();

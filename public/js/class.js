@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     var API = {
@@ -41,6 +43,7 @@ $(document).ready(function () {
 //   Save the new example to the db and refresh the list
 
 var handleNewClassSubmit = function (event) {
+    
     event.preventDefault();
 
     var newClass = {
@@ -94,7 +97,14 @@ var handleNewClassSubmit = function (event) {
 
 
 // Add event listeners to the submit and more info buttons
-$("#createclass-btn").on("click", handleNewClassSubmit);
+$(".createclass-btn").on("click", handleNewClassSubmit);
     //add onclick for registration
-    $("#regbutton").on("click", handleRegistration);
+    $("#regbutton").on("click",function(){
+//go to sign-up page
+//have the page populate with the class info
+//and have a pay now button
+//when click on pay now button follow the handleRegistration
+
+        handleRegistration
+    });
 });

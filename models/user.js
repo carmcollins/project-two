@@ -23,12 +23,6 @@ module.exports = function (sequelize, DataTypes) {
       validate: {
         len: [2, 10]
       }
-    },
-    photo: {
-      type: DataTypes.TEXT,
-      validate: {
-        isUrl: true
-      }
     }
   });
 
