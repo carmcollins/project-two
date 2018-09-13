@@ -19,7 +19,7 @@ HTML5, CSS3, Materialize CSS, Javascript, jQuery, Node JS, Express, Handlebars, 
 
 ### View The Project
 
-Visit [this page]() to browse our classes or create your own!
+Visit [this page](https://calm-cliffs-65539.herokuapp.com/) to browse our classes or create your own!
 
 <img src="public/photos/site1.png">
 
