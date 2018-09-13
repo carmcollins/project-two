@@ -95,7 +95,7 @@ $(document).ready(function () {
             type: "GET"
         }).then(function (data) {
             if (!data){
-                window.location.href = "/";
+                window.location.href = "/login-signup";
             }
             handleRegistration(data.id);
         });

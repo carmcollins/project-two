@@ -27,18 +27,9 @@ $(document).ready(function () {
             });
         },
         logoutUser: function () {
-            return $.ajax({
-                url: "/logout",
-                type: "GET"
-            });
+            window.location.href="/logout";
+            console.log("ajax call made");
         }
-        //   USE THIS TO GET USER INFO
-        //   getUserInfo: function() {
-        //       return $.ajax({
-        //           url: "api/user_data",
-        //           type: "GET"
-        //       });
-        //   } 
     };
 
     // When someone creates a new user, get all the info from the form
@@ -63,6 +54,7 @@ $(document).ready(function () {
         $("#email-signup").val("");
         $("#phone-signup").val("");
         $("#password-signup").val("");
+
     };
 
     // When someone clicks the Create Account button...
@@ -88,7 +80,8 @@ $(document).ready(function () {
 
     // When someone clicks the Log Out button...
     $(".logout-btn").on("click", function (event) {
-        ever.preventDefault();
+        console.log("Log out button hit!");
+        event.preventDefault();
         API.logoutUser();
     });
 
