@@ -1,5 +1,13 @@
 
 
+//Stripe keys
+var keys = require("./keys.js");
+var stripeKey = keys.stripe;
+//Stripe npm
+var stripe = require("stripe")(stripeKey.secret);
+
+
+
 // Posts user's payment info to the Stripe API dashboard
 module.exports = function(app) {
     // creates charge on stripe

@@ -24,6 +24,7 @@ module.exports = function(app) {
 
   //After user logs in, they are sent to the home page
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    console.log("Logged in")
     res.json("/");
   });
 
@@ -31,7 +32,9 @@ module.exports = function(app) {
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
+    console.log("Logged out")
   });
+  
 
   //Getting data about user to be used client side
   app.get("/api/user_data", function(req, res) {
