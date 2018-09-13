@@ -1,26 +1,32 @@
-var stripe = require("stripe")("pk_test_3kQuYbD9iDbwfdk6squr49KV");
+
 
 // Posts user's payment info to the Stripe API dashboard
-module.exports = function (app) {
-
+module.exports = function(app) {
+    // creates charge on stripe
     app.post("/api/charge", function(req, res) {
-        const token = req.body.stripeToken; 
-        stripe.charges.create({
-            amount: req.body.amount,
-            currency: "usd",
-            description: req.body.description,
-            source: token
-        }).then(function(err, charge) {
-            if (err) {
-                console.log(err);
-                res.send("error");
-            } else {
-                console.log("successful charge")
-                res.redirect("/");
-            }
-        }).catch(function(err){
-            res.send("error");
-        });
+      var source = req.body.source
+      var { amount, currency, description } = req.body.product
+  
+      stripe.charges.create({
+        description,
+        amount,
+        currency,
+        source
+      }, function(err, charge) {
+        if (err) {
+          var data = {
+            err: `Payment Failed`
+          }
+          res.status(409).json(data);
+          console.log('Error occured during the payment', err)
+        } else {
+          var data = {
+            success: `Payment has been completed`
+          }
+          res.json(data);
+          console.log('Payment has been completed!')
+        }
+      });
     });
-    
-};
+  
+  };
