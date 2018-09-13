@@ -34,7 +34,6 @@ $(document).ready(function () {
 
     // When someone creates a class, get all of the info from the form
     function handleNewClassSubmit() {
-        console.log("New class function");
 
         if (!
             $("#title-input").val() &&
@@ -98,6 +97,7 @@ $(document).ready(function () {
             window.location.href= "/classes";
         });
         
+
     });
 
     // When someone clicks on the Stripe button...
