@@ -6,18 +6,18 @@
             <div class="col s12 m6 center">
                 <img src="{{data.photo}}" class="details-photo">
                 <a id="class-signup-btn" class="waves-effect waves-light btn-large signup-btn" data-id="{{data.id}}">Sign Up For This Class</a>
-                            <form action="/" method="">
-  <script
-    src="https://checkout.stripe.com/checkout.js" data-id="{{data.id}}" class="stripe-button"
-    data-key="pk_test_3kQuYbD9iDbwfdk6squr49KV"
-    data-amount="{{data.price}}"
-    data-name="classUp.com"
-    data-description="charge for {{data.title}}"
-    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-    data-locale="auto"
-    data-zip-code="true">
-  </script>
-</form>
+                <form action="/" method="">
+                    <script
+                        src="https://checkout.stripe.com/checkout.js" data-id="{{data.id}}" class="stripe-button"
+                        data-key="pk_test_3kQuYbD9iDbwfdk6squr49KV"
+                        data-amount="{{data.price}}"
+                        data-name="classUp.com"
+                        data-description="Payment For {{data.title}}"
+                        data-image="https://image.ibb.co/fmk0n9/classup_stripe_logo.png"
+                        data-locale="auto"
+                        data-zip-code="true">
+                    </script>
+                </form>
             </div>
             <!-- Column 2 -->
             <div class="col s12 m6">

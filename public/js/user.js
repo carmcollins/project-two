@@ -69,7 +69,7 @@ $(document).ready(function () {
     $("#signup-btn").on("click", handleNewUserSubmit);
 
     // When someone clicks the Log In button...
-    $("#logInBtn").on("click", function (event) {
+    $("#login-btn").on("click", function (event) {
         event.preventDefault();
         var userData = {
             email: $("#email-login").val().trim(),
@@ -87,7 +87,7 @@ $(document).ready(function () {
     });
 
     // When someone clicks the Log Out button...
-    $("#logout-btn").on("click", function (event) {
+    $(".logout-btn").on("click", function (event) {
         ever.preventDefault();
         API.logoutUser();
     });
