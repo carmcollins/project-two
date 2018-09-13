@@ -84,26 +84,21 @@ $(document).ready(function () {
 
     // When someone clicks the Create Class button...
     $("#createclass-btn").on("click", function() {
-
         $.ajax({
             url: "/api/user_data",
             type: "GET"
         }).then(function (data) {
             if (!data){
                 window.location.href = "/login-signup";
+            } else {
+                handleNewClassSubmit();
+                window.location.href= "/classes";
             }
-
-            handleNewClassSubmit();
-            window.location.href= "/classes";
         });
-        
-
     });
 
     // When someone clicks on the Stripe button...
     $("#paymentButton").on("click", function () {
-        console.log("Sign up button clicked!");
-
         $.ajax({
             url: "/api/user_data",
             type: "GET"
@@ -113,7 +108,6 @@ $(document).ready(function () {
             }
             handleRegistration(data.id);
         });
-
     });
 
 });

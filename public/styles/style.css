@@ -8,6 +8,10 @@ main {
     flex: 1 0 auto;
 }
 
+.parallax-container {
+    height: 600px;
+}
+
 .brand-logo {
     margin-left: 15px;
 }
@@ -22,10 +26,6 @@ main {
 
 #notfound-title {
     margin-top: 20%;
-}
-
-.parallax-container {
-    height: 600px;
 }
 
 .bold {

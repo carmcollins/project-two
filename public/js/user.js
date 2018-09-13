@@ -54,7 +54,6 @@ $(document).ready(function () {
         $("#email-signup").val("");
         $("#phone-signup").val("");
         $("#password-signup").val("");
-
     };
 
     // When someone clicks the Create Account button...

@@ -37,48 +37,50 @@
         </div>
     </div>
 </div>
+<!-- Stripe JS -->
 <script src="https://checkout.stripe.com/checkout.js"></script>
 <script>
-  var handler = StripeCheckout.configure({
-    key: 'pk_test_3kQuYbD9iDbwfdk6squr49KV',
-    image: 'https://image.ibb.co/fmk0n9/classup_stripe_logo.png',
-    locale: 'auto',
-    token: function(token) {
-      $.ajax({
-        type: "POST",
-        url: "/api/charge",
-        contentType: "application/json",
-        dataType: "json",
-        data: JSON.stringify({
-          source: token.id,
-          product: {
-            amount: {{data.price}} * 100,
-        currency: 'usd',
-        description: `{{data.description}}`,
-    }
-    }),
-      success: function(data, textStatus, jqXHR) {
-        window.location = "/classes";
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-        var errorMessage = jqXHR.responseJSON.err
-      }
-    })
-      // You can access the token ID with `token.id`.
-      // Get the token ID to your server-side code for use.
-    }
-  });
-  document.getElementById("paymentButton").addEventListener('click', function(e) {
-    // Open Checkout with further options:
+    var handler = StripeCheckout.configure({
+        key: 'pk_test_3kQuYbD9iDbwfdk6squr49KV',
+        image: 'https://image.ibb.co/fmk0n9/classup_stripe_logo.png',
+        locale: 'auto',
+        token: function(token) {
+            $.ajax({
+                type: "POST",
+                url: "/api/charge",
+                contentType: "application/json",
+                dataType: "json",
+                data: JSON.stringify({
+                    source: token.id,
+                    product: {
+                        amount: {{data.price}} * 100,
+                        currency: 'usd',
+                        description: `{{data.description}}`,
+                    }
+                }),
+
+                success: function(data, textStatus, jqXHR) {
+                    window.location = "/classes";
+                },
+
+                error: function(jqXHR, textStatus, errorThrown) {
+                    var errorMessage = jqXHR.responseJSON.err
+                }
+            });
+        }
+    });
+    
+    document.getElementById("paymentButton").addEventListener('click', function(e) {
+
     handler.open({
-      name: `classUp`,
-      description: `Payment For {{data.title}}`,
-      amount: {{data.price}} * 100
-  });
-    e.preventDefault();
-  });
-  // Close Checkout on page navigation:
-  window.addEventListener('popstate', function() {
-    handler.close();
-  });
+        name: `classUp`,
+        description: `Payment For {{data.title}}`,
+        amount: {{data.price}} * 100
+    });
+        e.preventDefault();
+    });
+  
+    window.addEventListener('popstate', function() {
+        handler.close();
+    });
 </script>
