@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 var passport = require("passport");
 var session = require("express-session");
-var stripe = require("stripe")("pk_test_3kQuYbD9iDbwfdk6squr49KV");
+
 
 var db = require("./models");
 
