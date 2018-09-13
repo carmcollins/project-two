@@ -129,7 +129,7 @@
     "featured": true
 }
 {
-    "title": "Intermediate Spanish",
+    "title": "Beginner Spanish",
     "description": "Expand your Spanish vocabulary and learn tricky sentence structures in this Spanish class.",
     "instructor": "Laura Dominguez",
     "date": "2018-10-04",
@@ -181,7 +181,7 @@
     "featured": false
 }
 {
-    "title": "Conversational French",
+    "title": "Beginner French",
     "description": "Brush up on your French so that you'll blend in with the locals on your next trip to Paris.",
     "instructor": "Capri Miller",
     "date": "2018-10-03",
