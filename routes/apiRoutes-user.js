@@ -35,10 +35,13 @@ module.exports = function(app) {
 
   //Getting data about user to be used client side
   app.get("/api/user_data", function(req, res) {
+    console.log("Hit user_data api request!");
     if (!req.user) {
-      res.json({});
+      console.log("NOT SIGNED IN!");
+      res.json(false);
     }
     else {
+      console.log("IS SIGNED IN!");
       var newObj = {
         id: req.user.id,
         name: req.user.name,
@@ -46,9 +49,10 @@ module.exports = function(app) {
         phone: req.user.phone,
         photo: req.user.photo
       }
+      res.json(newObj);
     };
 
-    res.json(newObj);
+    
   });
 
 };

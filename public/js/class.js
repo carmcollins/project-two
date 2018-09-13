@@ -14,19 +14,22 @@ $(document).ready(function () {
                 type: "GET"
             });
         },
-        addStudent: function (classId) {
+        addStudent: function (classId, userId) {
             return $.ajax({
                 type: "POST",
-                url: "api/register/" + classId
+                url: "/api/register/" + classId,
+                data: userId
             });
         }
     };
 
     // When someone signs up for a class, get their user info
-    var handleRegistration = function (event) {
-        event.preventDefault();
-        var classId = $(".stripe-button").attr("data-id");
-        API.addStudent(classId);
+     function handleRegistration(userId) {
+        var classId = $(".signup-btn").attr("data-id");
+        userid = {
+            userId: userId
+        };
+        API.addStudent(classId, userid);
     };
 
     // When someone creates a class, get all of the info from the form
@@ -84,16 +87,19 @@ $(document).ready(function () {
     $("#createclass-btn").on("click", handleNewClassSubmit);
 
     // When someone clicks on the Stripe button...
-    $(".stripe-button").on("click", function () {
-        if (!req.user) {
-            return $.ajax({
-                url: "/classes",
-                type: "GET"
-            });
-        }
-        else {
-            handleRegistration;
-        }
+    $("#class-signup-btn").on("click", function () {
+        console.log("Sign up button clicked!");
+
+        $.ajax({
+            url: "/api/user_data",
+            type: "GET"
+        }).then(function (data) {
+            if (!data){
+                window.location.href = "/";
+            }
+            handleRegistration(data.id);
+        });
+
     });
 
 });
