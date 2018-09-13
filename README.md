@@ -1,38 +1,26 @@
-# Project Starter
+# classUp
 
-In this activity we will add the provided boilerplate to group project repos.
+An online resource to find, create, and share workshops and classes.
 
-## Instructions
+### About This Project
 
-* Only one member of each group should complete this activity while the others watch.
+We've all got a few special talents that set us apart from everyone else. At classUp, you can share your expertise with others by creating your own course and making some extra cash on the side.
 
-* Copy the entire [Unsolved](Unsolved) folder to another location on your computers &mdash; wherever you would like your local copy of the group project to be.
+Help your neighbors discover their new passion or teach them a savvy skill. Our diverse classes range from outdoor yoga and pasta-making, to graphic design and conversational French. Users are able to:
+* Browse all classes
+* Filter classes by category
+* Create their own class
+* Sign up for classes
+* Create a user account
 
-* Rename the copied "Unsolved" folder to the name of your project.
+### Technologies Used
 
-* Open the copied project folder's `package.json` file and change its `name` property to the name of your project.
+HTML5, CSS3, Materialize CSS, Javascript, jQuery, Node JS, Express, Handlebars, MySQL, Stripe API, Passport, Moment JS, Google Fonts
 
-* CD to the root of the copied project folder with your terminal and run the following commands:
+### View The Project
 
-  ```
-  git init
-  git add .
-  git commit -m "Initial commit"
-  ```
+Visit [this page]() to browse our classes or create your own!
 
-* Then copy the GitHub repo's remote SSH URL (the same URL you'd use to clone the repo).
+<img src="public/photos/site1.png">
 
-* Run the following commands in your terminal, replacing <remote-url> with your GitHub repo's remote SSH URL.
-
-  ```
-  git remote add origin <remote-url>
-  git push origin master
-  ```
-
-* If completed successfully you should see all of the files uploaded to GitHub.
-
-* All other group members should now clone the repo.
-
-* Discuss as a group:
-
-  * How would you now add changes to this project?
+<img src="public/photos/site2.png">
