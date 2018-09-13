@@ -87,7 +87,7 @@ $(document).ready(function () {
     });
 
     // When someone clicks the Log Out button...
-    $("#logout-btn").on("click", function (event) {
+    $(".logout-btn").on("click", function (event) {
         ever.preventDefault();
         API.logoutUser();
     });
