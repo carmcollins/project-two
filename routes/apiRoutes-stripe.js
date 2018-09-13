@@ -1,7 +1,7 @@
 
 
 //Stripe keys
-var keys = require("./keys.js");
+var keys = require("../keys.js");
 var stripeKey = keys.stripe;
 //Stripe npm
 var stripe = require("stripe")(stripeKey.secret);

@@ -33,8 +33,8 @@ $(document).ready(function () {
     };
 
     // When someone creates a class, get all of the info from the form
-    var handleNewClassSubmit = function (event) {
-        event.preventDefault();
+    function handleNewClassSubmit() {
+        console.log("New class function");
 
         if (!
             $("#title-input").val() &&
@@ -84,10 +84,24 @@ $(document).ready(function () {
     };
 
     // When someone clicks the Create Class button...
-    $("#createclass-btn").on("click", handleNewClassSubmit);
+    $("#createclass-btn").on("click", function() {
+
+        $.ajax({
+            url: "/api/user_data",
+            type: "GET"
+        }).then(function (data) {
+            if (!data){
+                window.location.href = "/login-signup";
+            }
+
+            handleNewClassSubmit();
+            window.location.href= "/classes";
+        });
+        
+    });
 
     // When someone clicks on the Stripe button...
-    $("#class-signup-btn").on("click", function () {
+    $("#paymentButton").on("click", function () {
         console.log("Sign up button clicked!");
 
         $.ajax({
