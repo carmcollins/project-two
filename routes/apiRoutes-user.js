@@ -35,7 +35,6 @@ module.exports = function(app) {
     console.log("Logged out")
   });
   
-
   //Getting data about user to be used client side
   app.get("/api/user_data", function(req, res) {
     console.log("Hit user_data api request!");
@@ -55,7 +54,6 @@ module.exports = function(app) {
       res.json(newObj);
     };
 
-    
   });
 
 };
